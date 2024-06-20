@@ -1,0 +1,24 @@
+import discord
+import random
+
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='',intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Hai fatto l\'accesso come {bot.user}')
+@bot.command()
+async def come_potremo_risolvere_linquinamento(ctx):
+    consigli = ""
+    consigli += "\n"
+    consigli += "raccolta differensiata"
+    consigli += "usare le macchine elettriche"
+    consigli += "usare le bioplastiche"
+    consigli += "riutilizzare i rifiuti"
+    await ctx.send(f'ma certo telo dico subito' + consigli)
+   
+bot.run("your_token")
